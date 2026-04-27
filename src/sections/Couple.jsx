@@ -1,5 +1,6 @@
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import prewedImg from '../assets/images/prewed.jpg';
 
 export default function Couple() {
   return (
@@ -14,7 +15,7 @@ export default function Couple() {
             <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-gold">
 
               <img
-                src="/src/assets/images/prewed.jpg"
+                src={prewedImg}
                 alt="Groom"
                 className="w-full h-full object-cover"
               />
@@ -31,7 +32,7 @@ export default function Couple() {
             <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-gold">
 
               <img
-                src="/src/assets/images/prewed.jpg"
+                src={prewedImg}
                 alt="Bride"
                 className="w-full h-full object-cover"
               />
