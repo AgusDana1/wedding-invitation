@@ -1,6 +1,7 @@
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import leafImg from '../assets/images/bunga.png';
+import audio from '../assets/music/SeribuBidadari.mp3';
 
 export default function MainLayout({ children }) {
 
@@ -65,7 +66,7 @@ export default function MainLayout({ children }) {
 
       {/* Background music */}
             <audio autoPlay loop>
-                <source src="/src/assets/music/SeribuBidadari.mp3" type="audio/mp3"/>
+                <source src={audio} type="audio/mp3"/>
             </audio>
 
       {/* CONTENT */}
