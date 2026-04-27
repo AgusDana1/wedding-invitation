@@ -82,7 +82,7 @@ export default function MainLayout({ children }) {
 
               {/* Text */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-gold font-wedding text-xl">
+                <p className="text-gold font-wedding text-xl mt-10">
                   Buka Undangan
                 </p>
               </div>
