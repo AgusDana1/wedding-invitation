@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap');
+
+@theme {
+  --color-gold: #d4af37;
+  --color-cream: #f8f5f0;
+
+  --font-elegant: "Playfair Display", serif;
+  --font-wedding: "Great Vibes", cursive;
+}
+
+body {
+  background: var(--color-cream);
+  color: #1f2937;
+  font-family: var(--font-elegant);
+}
