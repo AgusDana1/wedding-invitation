@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import leafImg from '../assets/images/bunga.png';
@@ -7,17 +8,15 @@ import audioFile from '../assets/music/SeribuBidadari.mp3';
 export default function MainLayout({ children }) {
 
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   const particlesInit = async (engine) => {
     await loadSlim(engine);
   };
 
-  const playMusic = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-    }
+  const handleOpen = () => {
+    setOpened(true);
+    audioRef.current?.play();
   };
 
   return (
@@ -25,7 +24,6 @@ export default function MainLayout({ children }) {
 
       {/* PARTICLES */}
       <Particles
-        id="tsparticles"
         init={particlesInit}
         options={{
           fullScreen: { enable: false },
@@ -36,11 +34,6 @@ export default function MainLayout({ children }) {
               speed: 1,
               direction: "bottom",
               gravity: { enable: true, acceleration: 0.2 },
-              outModes: { default: "out" },
-            },
-            rotate: {
-              value: { min: 0, max: 360 },
-              animation: { enable: true, speed: 5 },
             },
             shape: {
               type: "image",
@@ -51,7 +44,6 @@ export default function MainLayout({ children }) {
               },
             },
             size: { value: { min: 15, max: 30 } },
-            opacity: { value: 0.8 },
           },
         }}
         className="absolute inset-0 z-0 pointer-events-none"
@@ -62,20 +54,47 @@ export default function MainLayout({ children }) {
         <source src={audioFile} type="audio/mp3" />
       </audio>
 
-      {/* OPEN BUTTON */}
-      {!isPlaying && (
-        <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
-          <button
-            onClick={playMusic}
-            className="px-8 py-4 bg-gold text-white rounded-full shadow-lg"
-          >
-            Buka Undangan
-          </button>
+      {/* ENVELOPE OPENING */}
+      {!opened && (
+        <div className="fixed inset-0 bg-cream flex items-center justify-center z-50">
+
+          <div onClick={handleOpen} className="cursor-pointer">
+
+            {/* Envelope */}
+            <motion.div
+              initial={{ rotateX: 0 }}
+              animate={{ rotateX: opened ? 180 : 0 }}
+              transition={{ duration: 1 }}
+              className="w-72 h-44 relative perspective"
+            >
+
+              {/* Body */}
+              <div className="absolute w-full h-full bg-white border border-gold rounded-lg shadow-lg"></div>
+
+              {/* Flap */}
+              <motion.div
+                initial={{ rotateX: 0 }}
+                animate={{ rotateX: opened ? -180 : 0 }}
+                transition={{ duration: 1 }}
+                className="absolute top-0 w-full h-1/2 bg-gold origin-top"
+                style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)" }}
+              />
+
+              {/* Text */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="text-gold font-wedding text-xl">
+                  Buka Undangan
+                </p>
+              </div>
+
+            </motion.div>
+
+          </div>
         </div>
       )}
 
       {/* CONTENT */}
-      <div className="relative z-10">
+      <div className={`relative z-10 transition duration-700 ${opened ? "opacity-100" : "opacity-0"}`}>
         {children}
       </div>
     </div>
