@@ -1,18 +1,22 @@
 import Hero from "../sections/Hero";
-import Couple from "../sections/Couple";
+import Story from "../sections/Story";
+import Timeline from "../sections/Timeline";
 import Event from "../sections/Event";
-import Countdown from "../sections/Countdown";
-import RSVP from "../sections/RSVP";
+import Venue from "../sections/Venue";
+import DressCode from "../sections/DressCode";
+import BottomCards from "../sections/BottomCards";
 import Footer from "../sections/Footer";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Couple />
+      <Story />
+      <Timeline />
       <Event />
-      <Countdown />
-      <RSVP />
+      <Venue />
+      <DressCode />
+      <BottomCards />
       <Footer />
     </>
   );

@@ -1,17 +1,13 @@
-import { useState } from 'react'
 import './App.css'
 import Home from "./pages/Home";
 import MainLayout from "./layouts/MainLayout";
 
 function App() {  
-
   return (
-    <>
-      <MainLayout>
-        <Home />
-      </MainLayout>
-    </>
-  )
+    <MainLayout>
+      <Home />
+    </MainLayout>
+  );
 } 
 
-export default App
+export default App;
