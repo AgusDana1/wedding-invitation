@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import Navbar from "../components/Navbar";
+import PrintButton from "../components/PrintButton";
 import { FloralDivider, WeddingRingsIcon } from "../components/FloralOrnament";
 import { weddingData } from "../data/wedding";
 import leafImg from "../assets/images/bunga.png";
@@ -133,6 +134,9 @@ export default function MainLayout({ children }) {
       <div className={`relative z-20 transition-opacity duration-700 ${opened ? "opacity-100" : "opacity-0"}`}>
         <Navbar isAudioPlaying={isAudioPlaying} toggleAudio={toggleAudio} />
         <main>{children}</main>
+
+        {/* PRINT BUTTON — Muncul setelah website terbuka */}
+        {opened && <PrintButton />}
       </div>
     </div>
   );

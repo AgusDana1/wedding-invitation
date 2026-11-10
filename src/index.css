@@ -60,3 +60,331 @@ body {
 .gold-shadow {
   box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
 }
+
+/* ================================================================
+   PRINT STYLES — Hanya aktif saat window.print() dipanggil
+   react-to-print menyuntikkan @page dan class .print-only ke DOM
+   ================================================================ */
+
+/* Sembunyikan elemen .no-print saat mencetak */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Di layar: konten print disembunyikan (hanya untuk print) */
+.print-only {
+  display: none;
+}
+@media print {
+  .print-only {
+    display: block;
+  }
+}
+
+/* ---- Halaman Cetak ---- */
+.print-page {
+  width: 210mm;        /* A5 landscape lebar */
+  height: 148mm;       /* A5 landscape tinggi */
+  page-break-after: always;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFDF8;
+  overflow: hidden;
+  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+}
+
+/* Bingkai utama dengan padding */
+.print-frame {
+  width: calc(100% - 16mm);
+  height: calc(100% - 16mm);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #D4AF37;
+}
+
+/* Ornamen Sudut (corner decorations) */
+.print-corner {
+  position: absolute;
+  width: 12mm;
+  height: 12mm;
+}
+.print-corner.top-left {
+  top: -1px; left: -1px;
+  border-top: 3px solid #8C6D1F;
+  border-left: 3px solid #8C6D1F;
+}
+.print-corner.top-right {
+  top: -1px; right: -1px;
+  border-top: 3px solid #8C6D1F;
+  border-right: 3px solid #8C6D1F;
+}
+.print-corner.bottom-left {
+  bottom: -1px; left: -1px;
+  border-bottom: 3px solid #8C6D1F;
+  border-left: 3px solid #8C6D1F;
+}
+.print-corner.bottom-right {
+  bottom: -1px; right: -1px;
+  border-bottom: 3px solid #8C6D1F;
+  border-right: 3px solid #8C6D1F;
+}
+
+/* ---- COVER (Halaman 1) ---- */
+.print-cover-content {
+  text-align: center;
+  padding: 4mm 8mm;
+}
+.print-label-sm {
+  font-size: 7pt;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8C6D1F;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin: 2mm 0;
+}
+.print-muted {
+  color: #9A8A7A;
+}
+.print-divider-line {
+  width: 32mm;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  margin: 2mm auto;
+}
+.print-couple-names {
+  font-size: 36pt;
+  font-weight: 400;
+  color: #2C2723;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin: 1mm 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+.print-ampersand {
+  color: #D4AF37;
+  font-style: italic;
+}
+.print-floral-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  margin: 2mm 0;
+}
+.print-floral-line {
+  display: block;
+  width: 20mm;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D4AF37);
+}
+.print-floral-line:last-child {
+  transform: scaleX(-1);
+}
+.print-floral-diamond {
+  font-size: 7pt;
+  color: #D4AF37;
+}
+.print-date-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #D4AF37;
+  border-bottom: 1px solid #D4AF37;
+  padding: 1.5mm 8mm;
+  margin: 2mm 0;
+}
+.print-date-text {
+  font-size: 13pt;
+  letter-spacing: 0.25em;
+  color: #2C2723;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+}
+.print-date-day {
+  font-size: 7pt;
+  letter-spacing: 0.3em;
+  color: #D4AF37;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+.print-hashtag {
+  font-size: 8pt;
+  color: #9A8A7A;
+  letter-spacing: 0.1em;
+  margin-top: 2mm;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ---- DETAIL (Halaman 2) ---- */
+.print-details-content {
+  width: 100%;
+  padding: 5mm 8mm;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+.print-section {
+  text-align: center;
+}
+.print-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  margin-bottom: 2mm;
+}
+.print-section-title {
+  font-size: 11pt;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8C6D1F;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+.print-couple-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6mm;
+}
+.print-person {
+  text-align: center;
+  flex: 1;
+  max-width: 60mm;
+}
+.print-person-name {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #2C2723;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+.print-person-parents {
+  font-size: 7.5pt;
+  color: #7A7067;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.4;
+}
+.print-couple-ampersand {
+  font-size: 28pt;
+  color: #D4AF37;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+}
+.print-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+}
+.print-event-time {
+  font-size: 8pt;
+  font-weight: 700;
+  color: #8C6D1F;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 1mm;
+}
+.print-event-venue {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #2C2723;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+.print-event-address {
+  font-size: 7.5pt;
+  color: #7A7067;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.4;
+}
+
+/* ---- CLOSING (Halaman 3) ---- */
+.print-closing-content {
+  width: 100%;
+  padding: 5mm 8mm;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+.print-dresscode-title {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #2C2723;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+.print-dresscode-desc {
+  font-size: 7pt;
+  color: #7A7067;
+  font-family: "Montserrat", sans-serif;
+  max-width: 120mm;
+  margin: 1mm auto;
+  line-height: 1.4;
+}
+.print-swatch-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5mm;
+  margin-top: 2mm;
+}
+.print-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5mm;
+}
+.print-swatch-circle {
+  width: 10mm;
+  height: 10mm;
+  border-radius: 50%;
+}
+.print-swatch-label {
+  font-size: 5.5pt;
+  color: #7A7067;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  letter-spacing: 0.05em;
+  max-width: 16mm;
+  line-height: 1.3;
+}
+.print-closing-quote {
+  margin-top: 2mm;
+}
+.print-quote-text {
+  font-size: 9pt;
+  color: #4A433E;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 130mm;
+  margin: 0 auto 2mm;
+}
+.print-closing-names {
+  font-size: 20pt;
+  color: #2C2723;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+}
+.print-closing-date {
+  font-size: 8pt;
+  color: #9A8A7A;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.15em;
+}
+.print-closing-hashtag {
+  font-size: 7pt;
+  color: #D4AF37;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1.5mm;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
