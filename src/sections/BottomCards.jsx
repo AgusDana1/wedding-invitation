@@ -246,43 +246,132 @@ export default function BottomCards() {
                 </p>
               </div>
 
-              {/* QR Code Container with Gold Borders and Heart/Rings Center */}
-              <div className="relative inline-block p-4 rounded-2xl bg-[#FAF7F2] border-2 border-gold/40 shadow-inner my-2">
+              {/* QR Code Container with Gold Borders and Heart Center */}
+              <div className="relative inline-block p-3 rounded-xl bg-white border-2 border-[#D4AF37]/50 shadow-md my-2">
                 <svg
-                  className="w-36 h-36 mx-auto text-[#2C2723]"
-                  viewBox="0 0 100 100"
-                  fill="currentColor"
+                  className="w-40 h-40 mx-auto"
+                  viewBox="0 0 210 210"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  {/* Outer corner markers */}
-                  <rect x="10" y="10" width="24" height="24" rx="4" fill="none" stroke="#8C6D1F" strokeWidth="4" />
-                  <rect x="16" y="16" width="12" height="12" rx="2" fill="#8C6D1F" />
+                  {/* Background putih */}
+                  <rect width="210" height="210" fill="white"/>
 
-                  <rect x="66" y="10" width="24" height="24" rx="4" fill="none" stroke="#8C6D1F" strokeWidth="4" />
-                  <rect x="72" y="16" width="12" height="12" rx="2" fill="#8C6D1F" />
+                  {/* === FINDER PATTERN KIRI ATAS === */}
+                  <rect x="10" y="10" width="56" height="56" rx="6" fill="#2C2723"/>
+                  <rect x="17" y="17" width="42" height="42" rx="4" fill="white"/>
+                  <rect x="24" y="24" width="28" height="28" rx="3" fill="#2C2723"/>
 
-                  <rect x="10" y="66" width="24" height="24" rx="4" fill="none" stroke="#8C6D1F" strokeWidth="4" />
-                  <rect x="16" y="72" width="12" height="12" rx="2" fill="#8C6D1F" />
+                  {/* === FINDER PATTERN KANAN ATAS === */}
+                  <rect x="144" y="10" width="56" height="56" rx="6" fill="#2C2723"/>
+                  <rect x="151" y="17" width="42" height="42" rx="4" fill="white"/>
+                  <rect x="158" y="24" width="28" height="28" rx="3" fill="#2C2723"/>
 
-                  {/* QR Matrix Dots */}
-                  <circle cx="42" cy="18" r="3" fill="#2C2723" />
-                  <circle cx="54" cy="18" r="3" fill="#2C2723" />
-                  <circle cx="42" cy="28" r="3" fill="#2C2723" />
-                  <circle cx="54" cy="32" r="3" fill="#2C2723" />
-                  <circle cx="18" cy="46" r="3" fill="#2C2723" />
-                  <circle cx="28" cy="46" r="3" fill="#2C2723" />
-                  <circle cx="18" cy="56" r="3" fill="#2C2723" />
-                  <circle cx="82" cy="46" r="3" fill="#2C2723" />
-                  <circle cx="72" cy="54" r="3" fill="#2C2723" />
-                  <circle cx="82" cy="64" r="3" fill="#2C2723" />
-                  <circle cx="42" cy="72" r="3" fill="#2C2723" />
-                  <circle cx="54" cy="80" r="3" fill="#2C2723" />
-                  <circle cx="46" cy="84" r="3" fill="#2C2723" />
-                  <circle cx="68" cy="84" r="3" fill="#2C2723" />
+                  {/* === FINDER PATTERN KIRI BAWAH === */}
+                  <rect x="10" y="144" width="56" height="56" rx="6" fill="#2C2723"/>
+                  <rect x="17" y="151" width="42" height="42" rx="4" fill="white"/>
+                  <rect x="24" y="158" width="28" height="28" rx="3" fill="#2C2723"/>
 
-                  {/* Center Heart Emblem */}
-                  <rect x="38" y="38" width="24" height="24" rx="6" fill="#FAF7F2" stroke="#D4AF37" strokeWidth="2" />
+                  {/* === ALIGNMENT PATTERN (kanan bawah) === */}
+                  <rect x="152" y="152" width="22" height="22" rx="3" fill="#2C2723"/>
+                  <rect x="157" y="157" width="12" height="12" rx="2" fill="white"/>
+                  <rect x="161" y="161" width="4" height="4" fill="#2C2723"/>
+
+                  {/* === TIMING PATTERN Horizontal === */}
+                  {[76,86,96,106,116,126].map((x, i) => i % 2 === 0 && (
+                    <rect key={`th-${i}`} x={x} y="68" width="8" height="8" fill="#2C2723"/>
+                  ))}
+                  {/* === TIMING PATTERN Vertical === */}
+                  {[76,86,96,106,116,126].map((y, i) => i % 2 === 0 && (
+                    <rect key={`tv-${i}`} x="68" y={y} width="8" height="8" fill="#2C2723"/>
+                  ))}
+
+                  {/* === DATA MODULES - baris atas (di bawah finder atas) === */}
+                  <rect x="76" y="10" width="8" height="8" fill="#2C2723"/>
+                  <rect x="96" y="10" width="8" height="8" fill="#2C2723"/>
+                  <rect x="116" y="10" width="8" height="8" fill="#2C2723"/>
+                  <rect x="136" y="10" width="8" height="8" fill="#2C2723"/>
+                  <rect x="86" y="20" width="8" height="8" fill="#2C2723"/>
+                  <rect x="106" y="20" width="8" height="8" fill="#2C2723"/>
+                  <rect x="126" y="20" width="8" height="8" fill="#2C2723"/>
+                  <rect x="76" y="30" width="8" height="8" fill="#2C2723"/>
+                  <rect x="96" y="30" width="8" height="8" fill="#2C2723"/>
+                  <rect x="136" y="30" width="8" height="8" fill="#2C2723"/>
+                  <rect x="86" y="40" width="8" height="8" fill="#2C2723"/>
+                  <rect x="116" y="40" width="8" height="8" fill="#2C2723"/>
+                  <rect x="76" y="50" width="8" height="8" fill="#2C2723"/>
+                  <rect x="106" y="50" width="8" height="8" fill="#2C2723"/>
+                  <rect x="136" y="50" width="8" height="8" fill="#2C2723"/>
+                  <rect x="96" y="60" width="8" height="8" fill="#2C2723"/>
+                  <rect x="126" y="60" width="8" height="8" fill="#2C2723"/>
+
+                  {/* === DATA MODULES - kolom kiri (di kanan finder kiri) === */}
+                  <rect x="10" y="76" width="8" height="8" fill="#2C2723"/>
+                  <rect x="10" y="96" width="8" height="8" fill="#2C2723"/>
+                  <rect x="10" y="116" width="8" height="8" fill="#2C2723"/>
+                  <rect x="10" y="136" width="8" height="8" fill="#2C2723"/>
+                  <rect x="20" y="86" width="8" height="8" fill="#2C2723"/>
+                  <rect x="20" y="106" width="8" height="8" fill="#2C2723"/>
+                  <rect x="30" y="76" width="8" height="8" fill="#2C2723"/>
+                  <rect x="30" y="116" width="8" height="8" fill="#2C2723"/>
+                  <rect x="40" y="86" width="8" height="8" fill="#2C2723"/>
+                  <rect x="40" y="136" width="8" height="8" fill="#2C2723"/>
+                  <rect x="50" y="96" width="8" height="8" fill="#2C2723"/>
+                  <rect x="50" y="126" width="8" height="8" fill="#2C2723"/>
+                  <rect x="60" y="76" width="8" height="8" fill="#2C2723"/>
+                  <rect x="60" y="106" width="8" height="8" fill="#2C2723"/>
+
+                  {/* === DATA MODULES - kolom kanan === */}
+                  <rect x="144" y="76" width="8" height="8" fill="#2C2723"/>
+                  <rect x="154" y="86" width="8" height="8" fill="#2C2723"/>
+                  <rect x="144" y="96" width="8" height="8" fill="#2C2723"/>
+                  <rect x="164" y="106" width="8" height="8" fill="#2C2723"/>
+                  <rect x="144" y="116" width="8" height="8" fill="#2C2723"/>
+                  <rect x="154" y="126" width="8" height="8" fill="#2C2723"/>
+                  <rect x="174" y="86" width="8" height="8" fill="#2C2723"/>
+                  <rect x="184" y="96" width="8" height="8" fill="#2C2723"/>
+                  <rect x="174" y="116" width="8" height="8" fill="#2C2723"/>
+                  <rect x="184" y="136" width="8" height="8" fill="#2C2723"/>
+                  <rect x="192" y="76" width="8" height="8" fill="#2C2723"/>
+                  <rect x="192" y="106" width="8" height="8" fill="#2C2723"/>
+                  <rect x="192" y="126" width="8" height="8" fill="#2C2723"/>
+
+                  {/* === DATA MODULES - baris bawah === */}
+                  <rect x="76" y="144" width="8" height="8" fill="#2C2723"/>
+                  <rect x="96" y="154" width="8" height="8" fill="#2C2723"/>
+                  <rect x="116" y="144" width="8" height="8" fill="#2C2723"/>
+                  <rect x="136" y="154" width="8" height="8" fill="#2C2723"/>
+                  <rect x="86" y="164" width="8" height="8" fill="#2C2723"/>
+                  <rect x="106" y="144" width="8" height="8" fill="#2C2723"/>
+                  <rect x="126" y="164" width="8" height="8" fill="#2C2723"/>
+                  <rect x="76" y="174" width="8" height="8" fill="#2C2723"/>
+                  <rect x="96" y="184" width="8" height="8" fill="#2C2723"/>
+                  <rect x="116" y="174" width="8" height="8" fill="#2C2723"/>
+                  <rect x="136" y="184" width="8" height="8" fill="#2C2723"/>
+                  <rect x="86" y="192" width="8" height="8" fill="#2C2723"/>
+                  <rect x="106" y="192" width="8" height="8" fill="#2C2723"/>
+                  <rect x="126" y="192" width="8" height="8" fill="#2C2723"/>
+
+                  {/* === DATA MODULES - area tengah === */}
+                  <rect x="78" y="80" width="6" height="6" fill="#2C2723"/>
+                  <rect x="90" y="78" width="6" height="6" fill="#2C2723"/>
+                  <rect x="102" y="82" width="6" height="6" fill="#2C2723"/>
+                  <rect x="118" y="78" width="6" height="6" fill="#2C2723"/>
+                  <rect x="130" y="80" width="6" height="6" fill="#2C2723"/>
+                  <rect x="78" y="92" width="6" height="6" fill="#2C2723"/>
+                  <rect x="130" y="90" width="6" height="6" fill="#2C2723"/>
+                  <rect x="78" y="128" width="6" height="6" fill="#2C2723"/>
+                  <rect x="90" y="134" width="6" height="6" fill="#2C2723"/>
+                  <rect x="118" y="130" width="6" height="6" fill="#2C2723"/>
+                  <rect x="130" y="126" width="6" height="6" fill="#2C2723"/>
+                  <rect x="102" y="132" width="6" height="6" fill="#2C2723"/>
+                  <rect x="130" y="138" width="6" height="6" fill="#2C2723"/>
+                  <rect x="78" y="138" width="6" height="6" fill="#2C2723"/>
+
+                  {/* === CENTER HEART EMBLEM === */}
+                  <rect x="88" y="88" width="34" height="34" rx="8" fill="white" stroke="#D4AF37" strokeWidth="2"/>
                   <path
-                    d="M50 54 C46 50, 42 47, 42 44 C42 42, 44 40, 47 40 C48.5 40, 49.5 41, 50 42 C50.5 41, 51.5 40, 53 40 C56 40, 58 42, 58 44 C58 47, 54 50, 50 54 Z"
+                    d="M105 116 C99 110, 92 105, 92 99 C92 95, 95 92, 99 92 C101.5 92, 103.5 93.5, 105 95.5 C106.5 93.5, 108.5 92, 111 92 C115 92, 118 95, 118 99 C118 105, 111 110, 105 116 Z"
                     fill="#8C6D1F"
                   />
                 </svg>
