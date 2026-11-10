@@ -225,10 +225,10 @@ body {
 /* ---- DETAIL (Halaman 2) ---- */
 .print-details-content {
   width: 100%;
-  padding: 5mm 8mm;
+  padding: 4mm 8mm;
   display: flex;
   flex-direction: column;
-  gap: 3mm;
+  gap: 2.5mm;
 }
 .print-section {
   text-align: center;
@@ -238,10 +238,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3mm;
-  margin-bottom: 2mm;
+  margin-bottom: 1.5mm;
 }
 .print-section-title {
-  font-size: 11pt;
+  font-size: 10pt;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -258,25 +258,45 @@ body {
 .print-person {
   text-align: center;
   flex: 1;
-  max-width: 60mm;
+  max-width: 65mm;
+}
+/* Bingkai foto pengantin cetak */
+.print-photo-frame {
+  width: 25mm;
+  height: 25mm;
+  border-radius: 50%;
+  border: 1.5px solid #D4AF37;
+  padding: 0.8mm;
+  margin: 0 auto 2mm;
+  background-color: #FFFDF8;
+  box-shadow: 0 0 0 1px #8C6D1F;
+  overflow: hidden;
+}
+.print-person-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 .print-person-name {
-  font-size: 11pt;
+  font-size: 10.5pt;
   font-weight: 600;
   color: #2C2723;
   font-family: "Cormorant Garamond", Georgia, serif;
 }
 .print-person-parents {
-  font-size: 7.5pt;
+  font-size: 7pt;
   color: #7A7067;
   font-family: "Montserrat", sans-serif;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 .print-couple-ampersand {
-  font-size: 28pt;
+  font-size: 26pt;
   color: #D4AF37;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
+  margin-top: -3mm;
 }
 .print-separator {
   display: flex;
@@ -284,26 +304,44 @@ body {
   justify-content: center;
   gap: 3mm;
 }
+/* Layout 2 Kolom untuk Ceremony & Reception */
+.print-events-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5mm;
+  margin-top: 1mm;
+}
+.print-event-col {
+  flex: 1;
+  text-align: center;
+  max-width: 65mm;
+}
+.print-events-divider {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(to bottom, transparent, #D4AF37 30%, #D4AF37 70%, transparent);
+}
 .print-event-time {
-  font-size: 8pt;
+  font-size: 7.5pt;
   font-weight: 700;
   color: #8C6D1F;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-family: "Montserrat", sans-serif;
-  margin-bottom: 1mm;
+  margin-bottom: 0.8mm;
 }
 .print-event-venue {
-  font-size: 11pt;
+  font-size: 10pt;
   font-weight: 600;
   color: #2C2723;
   font-family: "Cormorant Garamond", Georgia, serif;
 }
 .print-event-address {
-  font-size: 7.5pt;
+  font-size: 7pt;
   color: #7A7067;
   font-family: "Montserrat", sans-serif;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 /* ---- CLOSING (Halaman 3) ---- */

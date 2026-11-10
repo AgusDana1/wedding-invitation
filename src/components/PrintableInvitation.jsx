@@ -84,6 +84,13 @@ const PrintableInvitation = forwardRef(function PrintableInvitation(_, ref) {
               <div className="print-couple-grid">
                 {/* Bride */}
                 <div className="print-person">
+                  <div className="print-photo-frame">
+                    <img
+                      src={couple.bride.photo}
+                      alt={couple.bride.shortName}
+                      className="print-person-photo"
+                    />
+                  </div>
                   <p className="print-person-name">{couple.bride.fullName}</p>
                   <p className="print-person-parents">
                     Putri dari {couple.bride.fatherName}
@@ -98,6 +105,13 @@ const PrintableInvitation = forwardRef(function PrintableInvitation(_, ref) {
 
                 {/* Groom */}
                 <div className="print-person">
+                  <div className="print-photo-frame">
+                    <img
+                      src={couple.groom.photo}
+                      alt={couple.groom.shortName}
+                      className="print-person-photo"
+                    />
+                  </div>
                   <p className="print-person-name">{couple.groom.fullName}</p>
                   <p className="print-person-parents">
                     Putra dari {couple.groom.fatherName}
@@ -116,35 +130,34 @@ const PrintableInvitation = forwardRef(function PrintableInvitation(_, ref) {
               <span className="print-floral-line" />
             </div>
 
-            {/* Section: Ceremony */}
-            <div className="print-section">
-              <div className="print-section-header">
-                <span className="print-floral-line" />
-                <span className="print-section-title">Ceremony</span>
-                <span className="print-floral-line" />
+            {/* Events: Ceremony & Reception Side-by-Side */}
+            <div className="print-events-grid">
+              {/* Ceremony */}
+              <div className="print-event-col">
+                <div className="print-section-header">
+                  <span className="print-floral-line" />
+                  <span className="print-section-title">Ceremony</span>
+                  <span className="print-floral-line" />
+                </div>
+                <p className="print-event-time">{events.ceremony.time}</p>
+                <p className="print-event-venue">{events.ceremony.venue}</p>
+                <p className="print-event-address">{events.ceremony.address}</p>
               </div>
-              <p className="print-event-time">{events.ceremony.time}</p>
-              <p className="print-event-venue">{events.ceremony.venue}</p>
-              <p className="print-event-address">{events.ceremony.address}</p>
-            </div>
 
-            {/* Floral separator */}
-            <div className="print-separator">
-              <span className="print-floral-line" />
-              <span className="print-floral-diamond">◆</span>
-              <span className="print-floral-line" />
-            </div>
+              {/* Vertical divider */}
+              <div className="print-events-divider" />
 
-            {/* Section: Reception */}
-            <div className="print-section">
-              <div className="print-section-header">
-                <span className="print-floral-line" />
-                <span className="print-section-title">Reception</span>
-                <span className="print-floral-line" />
+              {/* Reception */}
+              <div className="print-event-col">
+                <div className="print-section-header">
+                  <span className="print-floral-line" />
+                  <span className="print-section-title">Reception</span>
+                  <span className="print-floral-line" />
+                </div>
+                <p className="print-event-time">{events.reception.time}</p>
+                <p className="print-event-venue">{events.reception.venue}</p>
+                <p className="print-event-address">{events.reception.address}</p>
               </div>
-              <p className="print-event-time">{events.reception.time}</p>
-              <p className="print-event-venue">{events.reception.venue}</p>
-              <p className="print-event-address">{events.reception.address}</p>
             </div>
           </div>
         </div>
